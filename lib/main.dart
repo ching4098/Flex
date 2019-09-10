@@ -1,7 +1,10 @@
+import 'package:flexed/profile.dart' as prefix0;
 import 'package:flutter/material.dart';
+
 //import './Customlcons.dart';
 import 'data.dart';
 import 'dart:math';
+import 'profile.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -19,6 +22,8 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 class _MyAppState extends State<MyApp> {
   var currentPage = images.length - 1.0;
 
+  List<Widget> myPages = [Profile()];
+
   @override
   Widget build(BuildContext context) {
     PageController controller = PageController(initialPage: images.length - 1);
@@ -31,64 +36,135 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
       body: SingleChildScrollView(
-          child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(
-                left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(const IconData(
-                    0xe900,
-                    fontFamily: 'Buttons',
-                  )),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                    size: 30.0,
-                  ),
-                  onPressed: () {},
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text("Today",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 46.0,
-                      fontFamily: "HelveticaNeue",
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.0,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(const IconData(
+                      0xe900,
+                      fontFamily: 'Buttons',
                     )),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                      size: 30.0,
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("Today",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 46.0,
+                        fontFamily: "HelveticaNeue",
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                      )),
+                ],
+              ),
+            ),
+            Stack(
+              children: <Widget>[
+                CardScrollWidget(currentPage),
+                Positioned.fill(
+                    child: PageView.builder(
+                  itemCount: images.length,
+                  controller: controller,
+                  reverse: true,
+                  itemBuilder: (context, index) {
+                    return Container();
+                  },
+                ))
               ],
             ),
-          ),
-          Stack(
-            children: <Widget>[
-              CardScrollWidget(currentPage),
-              Positioned.fill(
-                  child: PageView.builder(
-                itemCount: images.length,
-                controller: controller,
-                reverse: true,
-                itemBuilder: (context, index) {
-                  return Container();
-                },
-              ))
-            ],
-          )
-        ],
-      )),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("find friends?",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 46.0,
+                        fontFamily: "HelveticaNeue",
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                      )),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 18.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image.asset(
+                      "assets/images/maps.jpg",
+                      width: 400.0,
+                      height: 400.0,
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("find song?",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 46.0,
+                        fontFamily: "HelveticaNeue",
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                      )),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 18.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image.asset(
+                      "assets/images/music.jpg",
+                      width: 400.0,
+                      height: 400.0,
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -169,7 +245,22 @@ class CardScrollWidget extends StatelessWidget {
 //                                          fontStyle: FontStyle.,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: "Helvetica Neue")),
-                                )
+                                ),
+                                SizedBox(height: 10.0),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12.0, bottom: 12.0),
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 22.0, vertical: 6.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.blueAccent,
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    child: Text("Completed",
+                                        style: TextStyle(color: Colors.white)),
+                                  ),
+                                ),
                               ],
                             ),
                           )

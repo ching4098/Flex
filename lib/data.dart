@@ -13,3 +13,8 @@ List<String> title = [
   "Sunny Side Up",
   "Sleep In",
 ];
+
+List<String> pictures = [
+  "assets/pictures/maps.jpg",
+  "assets/pictures/music.jpg",
+];

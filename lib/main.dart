@@ -1,15 +1,24 @@
 import 'package:flexed/profile.dart' as prefix0;
 import 'package:flutter/material.dart';
-
-//import './Customlcons.dart';
+import './Customlcons.dart';
 import 'data.dart';
 import 'dart:math';
 import 'profile.dart';
 
-void main() => runApp(MaterialApp(
-      home: MyApp(),
-      debugShowCheckedModeBanner: false,
-    ));
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      body: PageView(
+        children: <Widget>[
+          Container(child: MyApp()),
+          Container(child: Profile())
+        ],
+        scrollDirection: Axis.horizontal,
+      ),
+    ),
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -22,11 +31,20 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 class _MyAppState extends State<MyApp> {
   var currentPage = images.length - 1.0;
 
-  List<Widget> myPages = [Profile()];
+//  void _onClicked() {
+//    setState(() {
+//      //I don't know what I should put here to cause the image to redraw
+//      //only on button press
+//
+//
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
-    PageController controller = PageController(initialPage: images.length - 1);
+    PageController controller = PageController(
+      initialPage: images.length - 1,
+    );
     controller.addListener(() {
       setState(() {
         currentPage = controller.page;
@@ -111,22 +129,27 @@ class _MyAppState extends State<MyApp> {
             SizedBox(
               height: 20.0,
             ),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 18.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image.asset(
-                      "assets/images/maps.jpg",
-                      width: 400.0,
-                      height: 400.0,
-                      alignment: Alignment.center,
-                    ),
+            Row(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 18.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset(
+                    "assets/images/maps.jpg",
+                    width: 400.0,
+                    height: 400.0,
+                    alignment: Alignment.center,
                   ),
                 ),
-              ],
-            ),
+              ),
+//                new FlatButton(
+//                  onPressed: _onClicked,
+//                  child: new ConstrainedBox(
+//                    constraints: new BoxConstraints.expand(),
+////                    child: image,
+//                  ),
+//                ),
+            ]),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(

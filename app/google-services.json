@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1084595801827",
+    "firebase_url": "https://flex-cbb76.firebaseio.com",
+    "project_id": "flex-cbb76",
+    "storage_bucket": "flex-cbb76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084595801827:android:7c01492b92b0d41d827fd6",
+        "android_client_info": {
+          "package_name": "com.example.flex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084595801827-ct009n28qqnpreicgpuunn0qa12cr405.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flex",
+            "certificate_hash": "0bb659180871f9801650a19b0475f13a5d5cac42"
+          }
+        },
+        {
+          "client_id": "1084595801827-r36cdnhhnmh28gnb82b25i5ujon2s6pv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa4U-fmuG_wRI4HlmYfrOKvytFT8U03pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084595801827-r36cdnhhnmh28gnb82b25i5ujon2s6pv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
